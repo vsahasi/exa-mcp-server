@@ -2,15 +2,7 @@
 export interface ExaSearchRequest {
   query: string;
   type: "auto" | "fast" | "instant" | "deep" | "deep-reasoning";
-  category?:
-    | "company"
-    | "publication"
-    | "news"
-    | "pdf"
-    | "github"
-    | "personal site"
-    | "people"
-    | "financial report";
+  category?: "company" | "publication" | "news" | "personal site" | "people" | "financial report";
   includeDomains?: string[];
   excludeDomains?: string[];
   startPublishedDate?: string;
@@ -48,21 +40,11 @@ export interface ExaAdvancedSearchRequest {
   query: string;
   type: "auto" | "fast" | "instant";
   numResults?: number;
-  category?:
-    | "company"
-    | "publication"
-    | "news"
-    | "pdf"
-    | "github"
-    | "personal site"
-    | "people"
-    | "financial report";
+  category?: "company" | "publication" | "news" | "personal site" | "people" | "financial report";
   includeDomains?: string[];
   excludeDomains?: string[];
   startPublishedDate?: string;
   endPublishedDate?: string;
-  startCrawlDate?: string;
-  endCrawlDate?: string;
   includeText?: string[];
   excludeText?: string[];
   userLocation?: string;

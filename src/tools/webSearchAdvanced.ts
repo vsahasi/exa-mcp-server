@@ -35,16 +35,7 @@ Returns: Search results with optional highlights, summaries, and subpage content
         ),
 
       category: z
-        .enum([
-          "company",
-          "publication",
-          "news",
-          "pdf",
-          "github",
-          "personal site",
-          "people",
-          "financial report",
-        ])
+        .enum(["company", "publication", "news", "personal site", "people", "financial report"])
         .optional()
         .describe("Filter results to a specific category"),
 
@@ -62,14 +53,6 @@ Returns: Search results with optional highlights, summaries, and subpage content
         .string()
         .optional()
         .describe("Only include results published before this date (ISO 8601: YYYY-MM-DD)"),
-      startCrawlDate: z
-        .string()
-        .optional()
-        .describe("Only include results crawled after this date (ISO 8601: YYYY-MM-DD)"),
-      endCrawlDate: z
-        .string()
-        .optional()
-        .describe("Only include results crawled before this date (ISO 8601: YYYY-MM-DD)"),
 
       includeText: z
         .array(z.string())
@@ -201,14 +184,6 @@ Returns: Search results with optional highlights, summaries, and subpage content
 
         if (params.endPublishedDate) {
           searchRequest.endPublishedDate = params.endPublishedDate;
-        }
-
-        if (params.startCrawlDate) {
-          searchRequest.startCrawlDate = params.startCrawlDate;
-        }
-
-        if (params.endCrawlDate) {
-          searchRequest.endCrawlDate = params.endCrawlDate;
         }
 
         if (params.includeText && params.includeText.length > 0) {
